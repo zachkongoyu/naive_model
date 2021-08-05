@@ -26,7 +26,7 @@ class portfolio:
             expense = price * shares
             self.cash -= expense  - cost
             self.position[ticker] = {'price':price, 'shares':shares}
-        print(f"Buy {ticker} : {shares} shares | -{expense} cash - {cost} cost = -{expense + cost}")
+        print(f"Buy {ticker} : {shares} shares | -{expense} expense - {cost} cost = -{expense + cost}")
     
     def get_balance(self):
         print("Cash: {:>5}".format(self.cash))
@@ -35,6 +35,8 @@ class portfolio:
             print(f"{ticker}: ")
             print("{:>5} {:>5} {:>5}".format('', 'Price:', info['price']))
             print("{:>5} {:>5} {:>5}".format('', 'Shares', info['shares']))
+
+        print("Capital: {:>5}".format(self.get_capital()))
 
     def update_prices(self, prices):
         for i, ticker in enumerate(self.position):
